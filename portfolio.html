@@ -5,389 +5,352 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anshraj Baghel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            background-color: rgb(152, 188, 179);
-            color: aliceblue;
-        }
+    * {
+  box-sizing: border-box;
+}
 
-        .head {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 3rem;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(152, 188, 179);
+  color: aliceblue;
+}
 
-        .logo {
-            font-size: 3.5rem;
-            color: aliceblue;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        .logo:hover {
-            transform: scale(1.1);
-        }
+.head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
 
-        .navbar a {
-            font-size: 1.8rem;
-            color: white;
-            margin-left: 4rem;
-            font-weight: 500;
-            transition: 0.3s ease-in-out;
-            border-bottom: 3px solid transparent;
-        }
+.logo {
+  font-size: 3.5rem;
+  color: aliceblue;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
 
-        .navbar a:hover,
-        .navbar a.active {
-            color: #ff6347; /* Tomato color */
-            border-bottom: 3px solid #ff4500; /* OrangeRed color */
-        }
+.logo:hover {
+  transform: scale(1.1);
+}
 
-        #menu-icon {
-            font-size: 3.6rem;
-            color: #f3f1f1; /* Tomato color */
-        }
-
-        section {
-            min-height: 100vh;
-            padding: 10rem 9% 10rem;
-        }
-
-        .home {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .home-content {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-
-        span {
+span {
             color: #080808; /* Tomato color */
         }
 
-        .logo span {
-            color: #0c0c0c; /* Tomato color */
-        }
+.logo span {
+  color: #0c0c0c;
+}
 
-        h2 {
-            margin-bottom: 2rem;
-            margin-top: 1rem;
-            font-size: 3.5rem;
-            font-weight: 500;
-        }
+.navbar {
+  display: flex;
+  gap: 2rem;
+}
 
-        h1 {
-            font-size: 7rem;
-            font-weight: 700;
-            margin-top: 1.5rem;
-            line-height: 1;
-            margin: 10px;
-        }
+.navbar a {
+  font-size: 1.7rem;
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+  margin-left: 4rem;
+  font-weight: 500;
+}
 
-        .home-img img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            box-shadow: 0 0 25px #f8f7f7; /* OrangeRed color */
-            cursor: pointer;
-            transition: 0.4s ease-in-out;
-            object-fit: cover;
-            margin-top: 40px;
-        }
+.navbar a:hover {
+  border-color: white;
+  color: #e7e2e2;
+}
 
-        .home-img img:hover {
-            color: #f6f1f0; /* Tomato color */
-            box-shadow: 0 0 10px #f1f0f0; /* OrangeRed color */
-        }
+#menu-icon {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
 
-        p {
-            font-size: 1.8rem;
-            font-weight: 500;
-            max-width: 1000px;
-            margin: 20px;
-        }
+section {
+  padding: 7rem 5% 3rem;
+  min-height: 100vh;
+}
 
-        .social-icons a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 4.5rem;
-            height: 4.5rem;
-            background: transparent;
-            border: 2px solid #f7f5f5; /* OrangeRed color */
-            font-size: 2rem;
-            border-radius: 50%;
-            color: #090909; /* Tomato color */
-            margin: 3rem 1.5rem 3rem 0;
-            transition: 0.3s ease-in-out;
-        }
+.home, .about, .service, .contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
 
-        .social-icons a:hover {
-            color: white;
-            transform: scale(1.3);
-            background-color: rgb(152, 188, 179); /* Tomato color */
-        }
+.home-img img, .about-img img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #f8f7f7;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  object-fit: cover;
+  margin-top: 40px;
+}
 
-        .text-Animation {
-            font-size: 34px;
-            font-weight: 600;
-            min-width: 280px;
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
+.about-img img:hover {
+            color: #f4f2f1; /* Tomato color */
+            box-shadow: 0 0 100px #f5f3f2; /* OrangeRed color */
+ }
 
-        .text-Animation span {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            animation: typing 20s steps(15) infinite, cursor 0.6s infinite;
-        }
+ .home-img img:hover {
+            color: #f4f2f1; /* Tomato color */
+            box-shadow: 0 0 100px #f5f3f2; /* OrangeRed color */
+ }
 
-        .text-Animation span::before {
-            content: 'Frontend Web Developer';
-            color: #fbf7f7;
-            animation: words 20s infinite;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        @keyframes cursor {
-            0% {
-                border-left: 2px solid transparent;
-            }
-
-            50% {
-                border-left: 2px solid #ff6347;
-            }
-
-            100% {
-                border-left: 2px solid transparent;
-            }
-        }
-
-        @keyframes words {
-            0%, 20% {
-                content: "Frontend Web Developer";
-            }
-
-            21%, 40% {
-                content: "Graphic Designer";
-            }
-
-            41%, 60% {
-                content: "UI/UX Designer";
-            }
-
-            61%, 80% {
-                content: "Full Stack Web Developer";
-            }
-
-            81%, 100% {
-                content: "Software Tester";
-            }
-        }
-
-        @keyframes typing {
-            0% {
-                width: 0;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
-
-        .about {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15rem;
-            background-color:rgb(152, 188, 179);
-            color: white;
-        }
-
-        .about h1 span {
+ .about h1 span {
             color: #ff6347;
             text-shadow: 0 0 50px chocolate;
         }
 
-        .about-img img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            box-shadow: 0 0 25px #faf9f9; /* OrangeRed color */
-            cursor: pointer;
-            transition: 0.4s ease-in-out;
-            object-fit: cover;
-            margin-top: 40px;
-        }
+.home-content, .about-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+}
 
-        .about-img img:hover {
-            color: #f4f2f1; /* Tomato color */
-            box-shadow: 0 0 100px #f5f3f2; /* OrangeRed color */
-        }
+h2 {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  font-size: 3.5rem;
+  font-weight: 500;
+}
 
-        .service {
-            background-color: rgb(152, 188, 179);
-            color: aliceblue;
-            padding: 4rem 0;
-        }
+h1 {
+  font-size: 7rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  line-height: 1;
+  margin: 10px;
+}
 
-        .service h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  max-width: 1000px;
+  margin: 20px;
+}
 
-        .service h2 {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+.service-info p {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
 
-        .service p {
-            font-size: 1.8rem;
-            font-weight: 500;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
+.text-Animation {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
 
-        .service-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 6rem;
-        }
+.text-Animation span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: typing 20s steps(15) infinite, cursor 0.6s infinite;
+}
 
-        .service-box {
-            background-color: #0a0a0a;
-            color: white;
-            height: 450px;
-            width: 300px;
-            border-radius: 1.5rem;
-            gap: 3rem;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            box-shadow: 0 0 15px #f9f8f8; /* OrangeRed color */
-        }
+.text-Animation span::before {
+  content: 'Frontend Web Developer';
+  color: #fbf7f7;
+  animation: words 20s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
-        .service-box:hover {
-            background-color: white;
-            color: black;
-            box-shadow: 0 0 25px #f1f0ef;
-        }
+@keyframes cursor {
+  0% { border-left: 2px solid transparent; }
+  50% { border-left: 2px solid #ff6347; }
+  100% { border-left: 2px solid transparent; }
+}
 
-        .service-box .service-info {
-            text-align: center;
-        }
+@keyframes words {
+  0%, 20% { content: "Frontend Web Developer"; }
+  21%, 40% { content: "Graphic Designer"; }
+  41%, 60% { content: "UI/UX Designer"; }
+  61%, 80% { content: "Full Stack Web Developer"; }
+  81%, 100% { content: "Software Tester"; }
+}
 
-        .service-info h3 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
 
-        .service-info p {
-            font-size: 1.4rem;
-            font-weight: 400;
-        }
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: transparent;
+  border: 2px solid #f7f5f5;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: #090909;
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease-in-out;
+}
 
-        @media (max-width: 768px) {
-            .about, .service {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+.social-icons a:hover {
+  color: white;
+  transform: scale(1.3);
+  background-color: rgb(152, 188, 179);
+}
 
-        .contact {
-            padding: 4rem 0;
-            background-color: rgb(152, 188, 179);
-            color: white;
-            text-align: center;
-        }
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
 
-        .contact h1 {
-            margin-bottom: 2rem;
-        }
+.service-box {
+  background-color: #0a0a0a;
+  color: white;
+  height: 500px;
+  width: 400px;
+  border-radius: 1.5rem;
+  gap: 3rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 0 15px #f9f8f8;
+}
 
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+.service-box:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 25px #f1f0ef;
+}
 
-        .contact form input,
-        .contact form textarea {
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid #faf8f7; /* OrangeRed color */
-            background-color:#f6f0ed ;
-            color: black;
-            font-size: 1.2rem;
-        }
+.service-box .service-info {
+  text-align: center;
+}
 
-        .contact form button {
-            padding: 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            background-color: #f5efee; /* Tomato color */
-            color: black;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+}
 
-        .contact form button:hover {
-            background-color: #060606;
-            color: #f1f0ef; /* OrangeRed color */
-        }
+.contact input, .contact textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-        footer {
-            background-color: rgb(152, 188, 179);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
+.contact button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-        footer a {
-            color: #020202; /* Tomato color */
-            margin: 0 1rem;
-            transition: 0.3s ease-in-out;
-        }
+.contact button:hover {
+  background: white;
+  color: black;
+}
 
-        footer a:hover {
-            color: #e9e2e0; /* OrangeRed color */
-        }
+footer {
+  background-color: rgb(152, 188, 179);
+  padding: 2rem;
+  text-align: center;
+}
 
-        footer .social-icons a {
-            margin: 0 0.5rem;
-        }
+footer a {
+  color: #020202;
+  margin: 0 1rem;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  color: #e9e2e0;
+}
+
+footer .social-icons a {
+  margin: 0 0.5rem;
+}
+
+/* ✅ Mobile Fixes */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  .home-img img, .about-img img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .service-box {
+    width: 90%;
+    height: auto;
+    padding: 2rem;
+  }
+}
+
     </style>
 </head>
 
@@ -400,13 +363,10 @@
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
-        <div id="menu-icon">
-            <i class="fa-solid fa-bars"></i>
-         
-        </div>
+        <div id="menu-icon"><i class="fa fa-bars"></i></div>
     </header>
 
-    <section id="home" class="home">
+     <section id="home" class="home">
         <div class="home-content">
             <h2>Hello, I'm</h2>
             <h1>Anshraj Baghel</h1>
@@ -430,13 +390,13 @@
         </div>
         <div class="about-content">
             <h1>About Me</h1>
-            <p>I’m a B.Tech CSE undergraduate at <span >Shri Ram Institute of Science and Technology</span>, Jabalpur, with expertise in <span > Frontend and Backend Development ,C,Cpp,python </span> and learning, data analytics I’ve worked on impactful  projects like an <span > Amazon clone , Voice Assistant Bot and a fullstack Bag website café website, blending creativity with functionality</span>.
+            <p>I’m a B.Tech CSE undergraduate at <span >Shri Ram Institute of Science and Technology</span>, Jabalpur, with expertise in <span > Frontend development,C,Cpp,</span> and learning, ASP.NET, SQL, and JavaScript DOM manipulation. I’ve worked on impactful  projects like an <span > Amazon clone and a café website, blending creativity with functionality</span>.
                 <br> <br>
                   Currently, I’m exploring cloud computing, AI technologies, and advancing my technical skills through programs like <span >Gen AI Study Jam 2024</span> . Passionate about crafting user-focused solutions, I aim to deliver innovative and responsive designs. Let’s connect and build something extraordinary!</p>
         </div>
     </section>
 
-    <section id="services" class="service">
+       <section id="services" class="service">
         <h1>My Services</h1>
         <h2>What I Offer</h2>
         <div class="service-container">
@@ -444,7 +404,7 @@
             <div class="service-box">
                 <div class="service-info">
                     <h3>Graphic Design</h3>
-                    <p>I am a creative graphic designer with a keen eye for detail and a passion for transforming ideas into visually appealing designs. I specialize in creating impactful logos, branding, and digital content that communicates messages effectively.</p>
+                    <p>I am a creative graphic designer with a keen eye for detail and a passion for  visually appealing designs. I specialize in creating impactful logos content that communicates messages effectively.</p>
                 </div>
             </div>
             <div class="service-box">
@@ -482,6 +442,15 @@
         </div>
         <p>&copy; 2024 Anshraj Baghel. All rights reserved.</p>
     </footer>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navbar = document.querySelector('.navbar');
+
+        menuIcon.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
